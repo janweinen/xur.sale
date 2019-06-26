@@ -19,8 +19,8 @@ const PATH = "/Platform/Destiny2/Vendors/?components=";
 const COMPONENTS = "402";
 
 class App extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       saleItems: [],
@@ -58,7 +58,7 @@ class App extends Component {
                   description: definition.val().displayProperties.description
                 };
                 this.setState(prevState => ({
-                  itemProperties: prevState.itemProperties.concat(newItem)
+                  itemProperties: [...prevState.itemProperties, newItem]
                 }));
               });
           }

@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 
 import App from "./app";
 import Header from "./Header";
 
-export default class Layout extends React.Component {
+class Layout extends Component {
   render() {
     return (
       <div>
@@ -13,3 +13,5 @@ export default class Layout extends React.Component {
     );
   }
 }
+
+export default Layout;
