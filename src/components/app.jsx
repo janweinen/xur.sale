@@ -14,8 +14,9 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 
-//const API = "https://hn.algolia.com/api/v1/search?query=";
-//const DEFAULT_QUERY = "redux";
+const BUNGIE = "https://www.bungie.net";
+const PATH = "/Platform/Destiny2/Vendors/?components=";
+const COMPONENTS = "402";
 
 class App extends Component {
   constructor(props) {
@@ -33,7 +34,7 @@ class App extends Component {
     this.setState({ isLoading: true });
     let config = { "X-API-Key": "eab9e06fbeb94a13a658b52b505ac2b1" };
     axios
-      .get("https://www.bungie.net/Platform/Destiny2/Vendors/?components=402", {
+      .get(BUNGIE + PATH + COMPONENTS, {
         headers: config
       })
       .then(result =>
@@ -52,7 +53,6 @@ class App extends Component {
               .ref(this.state.saleItems[item].itemHash.toString(10))
               .on("value", definition => {
                 const newItem = {
-                  baseURL: "https://www.bungie.net",
                   name: definition.val().displayProperties.name,
                   icon: definition.val().displayProperties.icon,
                   description: definition.val().displayProperties.description
@@ -86,7 +86,7 @@ class App extends Component {
           <li key={index}>
             <h4>{item.name}</h4>
             <p>{item.description}</p>
-            <img src={item.baseURL + item.icon} alt="" />
+            <img src={BUNGIE + item.icon} alt="" />
           </li>
         ))}
       </ul>
