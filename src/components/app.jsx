@@ -77,7 +77,6 @@ class App extends Component {
     if (error) {
       return <p>{error.message}</p>;
     }
-    console.log(itemProperties);
     if (isLoading) {
       return <p>Loading ...</p>;
     }
