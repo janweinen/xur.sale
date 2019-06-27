@@ -1,4 +1,132 @@
-.App {
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 100%;
+}
+
+body {
   font-family: sans-serif;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+}
+
+.logo > img {
+  width: 80px;
+  height: auto;
+}
+
+li > img {
+  max-width: 100%;
+  padding-right: 1em;
+}
+
+li > div > p {
+  margin-top: 0.5em;
+}
+
+li {
+  list-style-type: none;
+  list-style-position: outside;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+hr {
+  border: 0;
+  height: 6px;
+  background-color: white;
+  width: 4em;
+  margin-bottom: 1em;
+  margin-left: 0;
+}
+
+#root {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: "header" "image" "description" "items" "footer";
+}
+
+header {
+  display: grid;
+  grid-template-columns: auto 5fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "logo title";
+  grid-area: header;
+}
+
+.logo {
+  grid-area: logo;
+  background-color: #2c4b29;
+  padding: 1.5em;
+}
+
+.title {
+  grid-area: title;
+  background-color: #426447;
+  padding: 2em;
+}
+
+.image {
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-area: image;
+}
+
+.map {
+  height: 200px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  grid-area: map;
+}
+
+.description {
+  padding: 1em;
+  grid-area: description;
+}
+
+main {
+  grid-area: items;
+  padding: 1em;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 96px 5fr;
+  grid-auto-rows: minmax(96px, auto);
+  grid-template-areas: "item-image item-info";
+  grid-area: item;
+}
+
+.item-image {
+  grid-area: item-image;
+}
+
+.item-info {
+  grid-area: item-info;
+}
+
+footer {
   text-align: center;
+  padding: 1em;
+  background-color: #2c4b29;
+  grid-area: footer;
+}
+
+.italic {
+  font-style: italic;
 }

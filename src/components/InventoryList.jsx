@@ -81,12 +81,14 @@ class App extends Component {
       return <p>Loading ...</p>;
     }
     return (
-      <ul>
+      <ul className="item-list">
         {itemProperties.map((item, index) => (
-          <li key={index}>
-            <h4>{item.name}</h4>
-            <p>{item.description}</p>
+          <li key={index} className="item">
             <img src={BUNGIE + item.icon} alt="" />
+            <span>
+              <h4>{item.name}</h4>
+              <p>{item.description}</p>
+            </span>
           </li>
         ))}
       </ul>

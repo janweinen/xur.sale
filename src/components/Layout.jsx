@@ -1,14 +1,18 @@
 import React, { Component } from "react";
 
-import App from "./app";
+import Body from "./Body";
+import Footer from "./Footer";
 import Header from "./Header";
+import Hero from "./Hero";
 
 class Layout extends Component {
   render() {
     return (
-      <div>
+      <div className="grid-container">
         <Header />
-        <App />
+        <Hero />
+        <Body />
+        <Footer />
       </div>
     );
   }
