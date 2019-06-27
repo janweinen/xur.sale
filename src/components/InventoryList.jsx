@@ -54,6 +54,7 @@ class App extends Component {
               .on("value", definition => {
                 const newItem = {
                   name: definition.val().displayProperties.name,
+                  type: definition.val().itemTypeAndTierDisplayName,
                   icon: definition.val().displayProperties.icon,
                   description: definition.val().displayProperties.description
                 };
@@ -86,8 +87,9 @@ class App extends Component {
           <li key={index} className="item">
             <img src={BUNGIE + item.icon} alt="" />
             <span>
-              <h4>{item.name}</h4>
-              <p>{item.description}</p>
+              <h3>{item.name}</h3>
+              <h4>{item.type}</h4>
+              <p className="italic">{item.description}</p>
             </span>
           </li>
         ))}
