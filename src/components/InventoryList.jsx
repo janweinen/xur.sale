@@ -52,7 +52,7 @@ class App extends Component {
               .database()
               .ref(this.state.saleItems[item].itemHash.toString(10))
               .on("value", definition => {
-                const newItem = {
+                let newItem = {
                   name: definition.val().displayProperties.name,
                   type: definition.val().itemTypeAndTierDisplayName,
                   icon: definition.val().displayProperties.icon,
