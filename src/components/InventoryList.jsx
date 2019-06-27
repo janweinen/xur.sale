@@ -75,11 +75,11 @@ class App extends Component {
 
   render() {
     const { itemProperties, isLoading, error } = this.state;
-    if (error) {
-      return <p>{error.message}</p>;
+    if (error && error.response.status === 500) {
+      return <p>Bungie's Servers are down for maintenance!</p>;
     }
     if (isLoading) {
-      return <p>Loading ...</p>;
+      return <p>Loading Items ...</p>;
     }
     return (
       <ul className="item-list">
