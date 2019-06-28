@@ -16,6 +16,11 @@ body {
   background-color: #000000;
 }
 
+.loadingInfo {
+  padding: 3em;
+  text-align: center;
+}
+
 .logo > img {
   width: 80px;
   height: auto;

@@ -18,7 +18,7 @@ const BUNGIE = "https://www.bungie.net";
 const PATH = "/Platform/Destiny2/Vendors/?components=";
 const COMPONENTS = "402";
 
-class App extends Component {
+class InventoryList extends Component {
   constructor() {
     super();
 
@@ -76,10 +76,17 @@ class App extends Component {
   render() {
     const { itemProperties, isLoading, error } = this.state;
     if (error && error.response.status === 500) {
-      return <p>Bungie's Servers are down for maintenance!</p>;
+      return (
+        <p className="loadingInfo">
+          <span role="img" aria-label="warning">
+            ⚠️
+          </span>{" "}
+          Bungie's Servers are down for maintenance!
+        </p>
+      );
     }
     if (isLoading) {
-      return <p>Loading Items ...</p>;
+      return <p className="loadingInfo">Loading Items ...</p>;
     }
     return (
       <ul className="item-list">
@@ -98,4 +105,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default InventoryList;
