@@ -17,6 +17,7 @@ firebase.initializeApp(firebaseConfig);
 const BUNGIE = "https://www.bungie.net";
 const PATH = "/Platform/Destiny2/Vendors/?components=";
 const COMPONENTS = "402";
+const REQUEST_HEADER = { "X-API-Key": "eab9e06fbeb94a13a658b52b505ac2b1" };
 
 class InventoryList extends Component {
   constructor() {
@@ -32,10 +33,9 @@ class InventoryList extends Component {
 
   componentDidMount() {
     this.setState({ isLoading: true });
-    let config = { "X-API-Key": "eab9e06fbeb94a13a658b52b505ac2b1" };
     axios
       .get(BUNGIE + PATH + COMPONENTS, {
-        headers: config
+        headers: REQUEST_HEADER
       })
       .then(result =>
         this.setState({
