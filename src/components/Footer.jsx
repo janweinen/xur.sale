@@ -5,11 +5,7 @@ class Footer extends Component {
     return (
       <footer>
         <p>
-          made with{" "}
-          <span role="img" aria-label="coffee">
-            ☕
-          </span>{" "}
-          in cologne
+          &copy; 2019 Jan Weinen <span>0.0.1</span>
         </p>
       </footer>
     );

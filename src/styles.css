@@ -132,9 +132,15 @@ main {
 
 footer {
   text-align: center;
-  padding: 1em;
+  font-size: 14px;
+  padding: 2em;
   background-color: #2c4b29;
   grid-area: footer;
+  color: hsla(0, 0%, 100%, 0.6);
+}
+
+footer > p > span {
+  opacity: 0.3;
 }
 
 .italic {
