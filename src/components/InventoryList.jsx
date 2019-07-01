@@ -1,7 +1,6 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
 import React, { Component } from "react";
-import axios from "axios";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDRVpJJYpLK-rfh_felc9vDNr8u3K_8WI0",
@@ -33,14 +32,14 @@ class InventoryList extends Component {
 
   componentDidMount() {
     this.setState({ isLoading: true });
-    axios
-      .get(BUNGIE + PATH + COMPONENTS, {
-        headers: REQUEST_HEADER
-      })
+    fetch(BUNGIE + PATH + COMPONENTS, {
+      headers: REQUEST_HEADER
+    })
+      .then(result => result.json())
       .then(result =>
         this.setState({
           saleItems: Object.values(
-            result.data.Response.sales.data[2190858386].saleItems
+            result.Response.sales.data[2190858386].saleItems
           )
         })
       )
@@ -58,6 +57,7 @@ class InventoryList extends Component {
                   description: definition.val().displayProperties.description,
                   hash: definition.val().hash
                 };
+                //console.log(definition.val());
                 this.setState(prevState => ({
                   itemProperties: [...prevState.itemProperties, newItem]
                 }));
