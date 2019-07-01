@@ -27,7 +27,7 @@ body {
 }
 
 li > img {
-  max-width: 100%;
+  width: 80px;
   border: 3px solid white;
 }
 
@@ -115,8 +115,8 @@ main {
 
 .item {
   display: grid;
-  grid-template-columns: 96px 5fr;
-  grid-auto-rows: minmax(96px, auto);
+  grid-template-columns: 80px 5fr;
+  grid-auto-rows: minmax(80px, auto);
   grid-template-areas: "item-image item-info";
   grid-area: item;
 }

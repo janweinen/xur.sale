@@ -41,8 +41,7 @@ class InventoryList extends Component {
         this.setState({
           saleItems: Object.values(
             result.data.Response.sales.data[2190858386].saleItems
-          ),
-          isLoading: false
+          )
         })
       )
       .then(() => {
@@ -65,6 +64,11 @@ class InventoryList extends Component {
           }
         }
       })
+      .then(() =>
+        this.setState({
+          isLoading: false
+        })
+      )
       .catch(error =>
         this.setState({
           error,
