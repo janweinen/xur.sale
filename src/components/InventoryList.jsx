@@ -55,7 +55,8 @@ class InventoryList extends Component {
                   name: definition.val().displayProperties.name,
                   type: definition.val().itemTypeAndTierDisplayName,
                   icon: definition.val().displayProperties.icon,
-                  description: definition.val().displayProperties.description
+                  description: definition.val().displayProperties.description,
+                  hash: definition.val().hash
                 };
                 this.setState(prevState => ({
                   itemProperties: [...prevState.itemProperties, newItem]
@@ -94,8 +95,8 @@ class InventoryList extends Component {
     }
     return (
       <ul className="item-list">
-        {itemProperties.map((item, index) => (
-          <li key={index} className="item">
+        {itemProperties.map(item => (
+          <li key={item.hash} className="item">
             <img src={BUNGIE + item.icon} alt="" />
             <span>
               <h3>{item.name}</h3>
