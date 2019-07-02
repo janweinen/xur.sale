@@ -1,13 +1,16 @@
 import React, { Component } from "react";
 import InventoryList from "./InventoryList";
+import { Location } from "./Helpers";
+
+const planet = "earth";
 
 class Footer extends Component {
   render() {
     return (
       <main>
         <hr />
-        <h4>INVENTORY</h4>
-        <h2>EXOTIC GEAR AND ITEMS</h2>
+        <h4>LOCATION</h4>
+        <h2>{Location(planet)}</h2>
         <InventoryList />
       </main>
     );
