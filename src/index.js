@@ -1,6 +1,6 @@
+import Layout from "./components/Layout";
 import React from "react";
 import ReactDOM from "react-dom";
-import Layout from "./components/Layout";
 import ReactGA from "react-ga";
 
 import "./styles.css";
