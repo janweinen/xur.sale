@@ -80,7 +80,6 @@ class InventoryList extends Component {
             ⚠️
           </span>{" "}
           {error.message}
-          Bungie's Servers are down for maintenance!
         </p>
       );
     }

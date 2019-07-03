@@ -1,6 +1,8 @@
+import { Globals } from "./Globals";
+
 async function apiRequest(path) {
   const options = {
-    headers: { "X-API-Key": "eab9e06fbeb94a13a658b52b505ac2b1" }
+    headers: { "X-API-Key": Globals.key.bungie }
   };
 
   const request = await fetch(`https://www.bungie.net${path}`, options).then(
@@ -9,6 +11,6 @@ async function apiRequest(path) {
 
   return request.Response;
 }
-
+console.log(Globals);
 export const getXurInventory = async () =>
   apiRequest("/Platform/Destiny2/Vendors/?components=402");
