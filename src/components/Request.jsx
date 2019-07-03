@@ -11,6 +11,6 @@ async function apiRequest(path) {
 
   return request.Response;
 }
-console.log(Globals);
+
 export const getXurInventory = async () =>
   apiRequest("/Platform/Destiny2/Vendors/?components=402");
