@@ -11,6 +11,6 @@ export const Location = planet => {
     case "io":
       return "GIANT'S SCAR, IO";
     default:
-      return "XÛR RETURNS ON FRIDAY";
+      return "UNKNOWN SPACE";
   }
 };
