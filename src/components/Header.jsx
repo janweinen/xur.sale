@@ -10,7 +10,7 @@ class Header extends Component {
         </div>
         <div className="title">
           <h1>XÛR</h1>
-          <p>Agent of the Nine</p>
+          <p>Agent of The Nine</p>
         </div>
       </header>
     );
