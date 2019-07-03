@@ -1,11 +1,12 @@
 import React, { Component } from "react";
+import pkg from "../../package.json";
 
 class Footer extends Component {
   render() {
     return (
       <footer>
         <p>
-          &copy; 2019 Jan Weinen <span>0.0.1</span>
+          &copy; 2019 Jan Weinen <span>{pkg.version}</span>
         </p>
       </footer>
     );
