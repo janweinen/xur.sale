@@ -1,6 +1,7 @@
 import * as firebase from "firebase/app";
 import "firebase/database";
 import React, { Component } from "react";
+import { getXurInventory } from "./Request";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDRVpJJYpLK-rfh_felc9vDNr8u3K_8WI0",
@@ -14,9 +15,6 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const BUNGIE = "https://www.bungie.net";
-const PATH = "/Platform/Destiny2/Vendors/?components=";
-const COMPONENTS = "402";
-const REQUEST_HEADER = { "X-API-Key": "eab9e06fbeb94a13a658b52b505ac2b1" };
 
 class InventoryList extends Component {
   constructor() {
@@ -32,15 +30,10 @@ class InventoryList extends Component {
 
   componentDidMount() {
     this.setState({ isLoading: true });
-    fetch(BUNGIE + PATH + COMPONENTS, {
-      headers: REQUEST_HEADER
-    })
-      .then(result => result.json())
+    getXurInventory()
       .then(result =>
         this.setState({
-          saleItems: Object.values(
-            result.Response.sales.data[2190858386].saleItems
-          )
+          saleItems: Object.values(result.sales.data[2190858386].saleItems)
         })
       )
       .then(() => {
@@ -80,12 +73,13 @@ class InventoryList extends Component {
 
   render() {
     const { itemProperties, isLoading, error } = this.state;
-    if (error && error.response.status === 500) {
+    if (error) {
       return (
         <p className="loadingInfo">
           <span role="img" aria-label="warning">
             ⚠️
           </span>{" "}
+          {error.message}
           Bungie's Servers are down for maintenance!
         </p>
       );
