@@ -2,6 +2,7 @@ import * as firebase from "firebase/app";
 import "firebase/database";
 import React, { Component } from "react";
 import { getXurInventory } from "./Request";
+import { Globals } from "./Globals";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDRVpJJYpLK-rfh_felc9vDNr8u3K_8WI0",
@@ -13,8 +14,6 @@ const firebaseConfig = {
   appId: "1:739280273977:web:d0adee2748cd5460"
 };
 firebase.initializeApp(firebaseConfig);
-
-const BUNGIE = "https://www.bungie.net";
 
 class InventoryList extends Component {
   constructor() {
@@ -47,6 +46,7 @@ class InventoryList extends Component {
                 type: definition.val().itemTypeAndTierDisplayName,
                 icon: definition.val().displayProperties.icon,
                 description: definition.val().displayProperties.description,
+                itemType: definition.val().itemType,
                 hash: definition.val().hash
               };
               this.setState(prevState => ({
@@ -87,7 +87,7 @@ class InventoryList extends Component {
       <ul className="item-list">
         {itemProperties.map(item => (
           <li key={item.hash} className="item">
-            <img src={BUNGIE + item.icon} alt="" />
+            <img src={Globals.url.bungie + item.icon} alt="" />
             <span>
               <h3>{item.name}</h3>
               <h4>{item.type}</h4>
