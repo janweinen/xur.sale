@@ -37,26 +37,23 @@ class InventoryList extends Component {
         })
       )
       .then(() => {
-        for (let item in this.state.saleItems) {
-          if (this.state.saleItems.hasOwnProperty(item)) {
-            firebase
-              .database()
-              .ref(this.state.saleItems[item].itemHash.toString(10))
-              .on("value", definition => {
-                let newItem = {
-                  name: definition.val().displayProperties.name,
-                  type: definition.val().itemTypeAndTierDisplayName,
-                  icon: definition.val().displayProperties.icon,
-                  description: definition.val().displayProperties.description,
-                  hash: definition.val().hash
-                };
-                //console.log(definition.val());
-                this.setState(prevState => ({
-                  itemProperties: [...prevState.itemProperties, newItem]
-                }));
-              });
-          }
-        }
+        this.state.saleItems.map(item =>
+          firebase
+            .database()
+            .ref(item.itemHash.toString(10))
+            .on("value", definition => {
+              let newItem = {
+                name: definition.val().displayProperties.name,
+                type: definition.val().itemTypeAndTierDisplayName,
+                icon: definition.val().displayProperties.icon,
+                description: definition.val().displayProperties.description,
+                hash: definition.val().hash
+              };
+              this.setState(prevState => ({
+                itemProperties: [...prevState.itemProperties, newItem]
+              }));
+            })
+        );
       })
       .then(() =>
         this.setState({
