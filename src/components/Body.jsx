@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import InventoryList from "./InventoryList";
 import { Location } from "./Helpers";
 
-const planet = "";
+const planet = "nessus";
 
 class Footer extends Component {
   render() {
