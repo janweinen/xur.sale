@@ -3,6 +3,7 @@ import "firebase/database";
 import React, { Component } from "react";
 import { getXurInventory } from "./Request";
 import { Globals } from "./Globals";
+import loader from "../images/loader.gif";
 
 const firebaseConfig = {
   apiKey: "AIzaSyDRVpJJYpLK-rfh_felc9vDNr8u3K_8WI0",
@@ -81,7 +82,7 @@ class InventoryList extends Component {
       );
     }
     if (isLoading) {
-      return <p className="loadingInfo">Loading Items ...</p>;
+      return <img className="loadingInfo" src={loader} alt="" />;
     }
     return (
       <ul className="item-list">
