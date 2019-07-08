@@ -13,8 +13,8 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 export async function firebaseRequest(hash) {
-  let request = firebase.database().ref(hash);
+  const request = firebase.database().ref(hash);
 
-  let snapshot = await request.once("value");
+  const snapshot = await request.once("value");
   return snapshot.val();
 }
