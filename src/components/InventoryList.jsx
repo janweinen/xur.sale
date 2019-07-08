@@ -71,6 +71,17 @@ class InventoryList extends Component {
 
   render() {
     const { itemProperties, isLoading, error } = this.state;
+    const itemList = itemProperties.map(item => (
+      <li key={item.hash} className="item">
+        <img src={Globals.url.bungie + item.icon} alt="" />
+        <span>
+          <h3>{item.name}</h3>
+          <h4>{item.type}</h4>
+          <p className="italic">{item.description}</p>
+        </span>
+      </li>
+    ));
+
     if (error) {
       return (
         <p className="loadingInfo">
@@ -84,20 +95,7 @@ class InventoryList extends Component {
     if (isLoading) {
       return <img className="loadingInfo" src={loader} alt="" />;
     }
-    return (
-      <ul className="item-list">
-        {itemProperties.map(item => (
-          <li key={item.hash} className="item">
-            <img src={Globals.url.bungie + item.icon} alt="" />
-            <span>
-              <h3>{item.name}</h3>
-              <h4>{item.type}</h4>
-              <p className="italic">{item.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-    );
+    return <ul className="item-list">{itemList}</ul>;
   }
 }
 
