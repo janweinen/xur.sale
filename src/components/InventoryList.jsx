@@ -1,20 +1,8 @@
-import * as firebase from "firebase/app";
-import "firebase/database";
+import { firebaseRequest } from "./fbdb";
 import React, { Component } from "react";
 import { getXurInventory } from "./Request";
 import { Globals } from "./Globals";
 import loader from "../images/loader.gif";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDRVpJJYpLK-rfh_felc9vDNr8u3K_8WI0",
-  authDomain: "theix-3b6ee.firebaseapp.com",
-  databaseURL: "https://theix-3b6ee.firebaseio.com",
-  projectId: "theix-3b6ee",
-  storageBucket: "theix-3b6ee.appspot.com",
-  messagingSenderId: "739280273977",
-  appId: "1:739280273977:web:d0adee2748cd5460"
-};
-firebase.initializeApp(firebaseConfig);
 
 class InventoryList extends Component {
   constructor() {
@@ -38,34 +26,11 @@ class InventoryList extends Component {
       )
       .then(() => {
         this.state.saleItems.map(item =>
-          firebase
-            .database()
-            .ref(item.itemHash.toString(10))
-            .on("value", definition => {
-              let newItem = {
-                name: definition.val().displayProperties.name,
-                type: definition.val().itemTypeAndTierDisplayName,
-                icon: definition.val().displayProperties.icon,
-                description: definition.val().displayProperties.description,
-                itemType: definition.val().itemType,
-                hash: definition.val().hash
-              };
-              /*
-              if (definition.val().sockets) {
-                definition.val().sockets.socketEntries.map(perk =>
-                  firebase
-                    .database()
-                    .ref(perk.singleInitialItemHash.toString(10))
-                    .on("value", result => {
-                      console.log(result.val().displayProperties.icon);
-                    })
-                );
-              }
-              */
-              this.setState(prevState => ({
-                itemProperties: [...prevState.itemProperties, newItem]
-              }));
-            })
+          firebaseRequest(item.itemHash.toString(10)).then(result =>
+            this.setState(prevState => ({
+              itemProperties: [...prevState.itemProperties, result]
+            }))
+          )
         );
       })
       .then(() =>
@@ -85,11 +50,11 @@ class InventoryList extends Component {
     const { itemProperties, isLoading, error } = this.state;
     const itemList = itemProperties.map(item => (
       <li key={item.hash} className="item">
-        <img src={Globals.url.bungie + item.icon} alt="" />
+        <img src={Globals.url.bungie + item.displayProperties.icon} alt="" />
         <span>
-          <h3>{item.name}</h3>
-          <h4>{item.type}</h4>
-          <p className="italic">{item.description}</p>
+          <h3>{item.displayProperties.name}</h3>
+          <h4>{item.displayProperties.type}</h4>
+          <p className="italic">{item.displayProperties.description}</p>
         </span>
       </li>
     ));
