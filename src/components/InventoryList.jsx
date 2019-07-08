@@ -50,6 +50,18 @@ class InventoryList extends Component {
                 itemType: definition.val().itemType,
                 hash: definition.val().hash
               };
+              /*
+              if (definition.val().sockets) {
+                definition.val().sockets.socketEntries.map(perk =>
+                  firebase
+                    .database()
+                    .ref(perk.singleInitialItemHash.toString(10))
+                    .on("value", result => {
+                      console.log(result.val().displayProperties.icon);
+                    })
+                );
+              }
+              */
               this.setState(prevState => ({
                 itemProperties: [...prevState.itemProperties, newItem]
               }));
