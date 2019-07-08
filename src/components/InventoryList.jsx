@@ -1,8 +1,8 @@
-import { firebaseRequest } from "./fbdb";
-import React, { Component } from "react";
-import { getXurInventory } from "./Request";
+import { firebaseRequest } from "./FirebaseRequest";
+import { getXurInventory } from "./BungieRequest";
 import { Globals } from "./Globals";
 import loader from "../images/loader.gif";
+import React, { Component } from "react";
 
 class InventoryList extends Component {
   constructor() {
