@@ -22,7 +22,6 @@ class InventoryList extends Component {
       .then(result => {
         Object.values(result.sales.data[2190858386].saleItems).map(item =>
           firebaseRequest(item.itemHash.toString(10)).then(result => {
-            /*
             if (result.sockets) {
               result.sockets.socketEntries.map(perks =>
                 firebaseRequest(perks.singleInitialItemHash.toString(10)).then(
@@ -34,7 +33,6 @@ class InventoryList extends Component {
                 )
               );
             }
-            */
             this.setState(prevState => ({
               inventory: [...prevState.inventory, result]
             }));
@@ -56,15 +54,20 @@ class InventoryList extends Component {
 
   render() {
     const { inventory, perks, isLoading, error } = this.state;
-    const p = perks.map(perk => (
-      <img src={Globals.url.bungie + perk.displayProperties.icon} alt="" />
+    const p = perks.map((perk, index) => (
+      <img
+        className="perk-image"
+        key={index}
+        src={Globals.url.bungie + perk.displayProperties.icon}
+        alt=""
+      />
     ));
     const itemList = inventory.map(item => (
       <li key={item.hash} className="item" data-hash={item.hash}>
         <img src={Globals.url.bungie + item.displayProperties.icon} alt="" />
         <span>
           <h3>{item.displayProperties.name}</h3>
-          <h4>{item.displayProperties.type}</h4>
+          <h4>{item.itemTypeDisplayName}</h4>
           <p className="italic">{item.displayProperties.description}</p>
         </span>
       </li>
