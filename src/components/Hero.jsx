@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import XurHeader from "../images/xur.jpg";
 
-class Footer extends Component {
+class Hero extends Component {
   render() {
     return (
       <div>
@@ -20,4 +20,4 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+export default Hero;

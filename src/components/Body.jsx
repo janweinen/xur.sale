@@ -4,7 +4,7 @@ import { Location } from "./Helpers";
 
 const planet = "";
 
-class Footer extends Component {
+class Body extends Component {
   render() {
     return (
       <main>
@@ -17,4 +17,4 @@ class Footer extends Component {
   }
 }
 
-export default Footer;
+export default Body;

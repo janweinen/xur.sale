@@ -9,8 +9,8 @@ class InventoryList extends Component {
     super();
 
     this.state = {
-      saleItems: [],
-      itemProperties: [],
+      inventory: [],
+      perks: [],
       isLoading: false,
       error: null
     };
@@ -19,18 +19,26 @@ class InventoryList extends Component {
   componentDidMount() {
     this.setState({ isLoading: true });
     getXurInventory()
-      .then(result =>
-        this.setState({
-          saleItems: Object.values(result.sales.data[2190858386].saleItems)
-        })
-      )
-      .then(() => {
-        this.state.saleItems.map(item =>
-          firebaseRequest(item.itemHash.toString(10)).then(result =>
+      .then(result => {
+        Object.values(result.sales.data[2190858386].saleItems).map(item =>
+          firebaseRequest(item.itemHash.toString(10)).then(result => {
+            /*
+            if (result.sockets) {
+              result.sockets.socketEntries.map(perks =>
+                firebaseRequest(perks.singleInitialItemHash.toString(10)).then(
+                  result => {
+                    this.setState(prevState => ({
+                      perks: [...prevState.perks, result]
+                    }));
+                  }
+                )
+              );
+            }
+            */
             this.setState(prevState => ({
-              itemProperties: [...prevState.itemProperties, result]
-            }))
-          )
+              inventory: [...prevState.inventory, result]
+            }));
+          })
         );
       })
       .then(() =>
@@ -47,9 +55,12 @@ class InventoryList extends Component {
   }
 
   render() {
-    const { itemProperties, isLoading, error } = this.state;
-    const itemList = itemProperties.map(item => (
-      <li key={item.hash} className="item">
+    const { inventory, perks, isLoading, error } = this.state;
+    const p = perks.map(perk => (
+      <img src={Globals.url.bungie + perk.displayProperties.icon} alt="" />
+    ));
+    const itemList = inventory.map(item => (
+      <li key={item.hash} className="item" data-hash={item.hash}>
         <img src={Globals.url.bungie + item.displayProperties.icon} alt="" />
         <span>
           <h3>{item.displayProperties.name}</h3>
