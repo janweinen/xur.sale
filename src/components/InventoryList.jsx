@@ -65,7 +65,8 @@ class InventoryList extends Component {
           <span role="img" aria-label="warning">
             ⚠️
           </span>{" "}
-          {error.message}
+          Bungie's servers are down for maintenance! Error Message:{" "}
+          {error.message};
         </p>
       );
     }
