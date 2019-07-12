@@ -30,16 +30,12 @@ body {
 
 .perk-image {
   margin-top: 0.5em;
-  width: 50px;
-}
-
-li > img {
-  width: 80px;
-  border: 3px solid white;
+  width: 30px;
 }
 
 li > span {
   padding-left: 1em;
+  padding-top: 0.5em;
 }
 
 li > div > p {
@@ -122,10 +118,12 @@ main {
 
 .item {
   display: grid;
-  grid-template-columns: 80px 5fr;
-  grid-auto-rows: minmax(80px, auto);
+  grid-template-columns: 96px 5fr;
+  grid-auto-rows: minmax(96px, auto);
   grid-template-areas: "item-image item-info";
   grid-area: item;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .item-image {
