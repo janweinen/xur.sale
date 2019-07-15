@@ -122,10 +122,12 @@ header {
   grid-area: description;
 }
 
-.description > p,
+.description > p {
+  margin-top: 0.5em;
+}
+
 .item > span > p {
   color: #9a9999;
-  margin-top: 0.5em;
 }
 
 .description > h2,
