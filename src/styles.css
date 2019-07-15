@@ -81,7 +81,6 @@ header {
   grid-template-rows: 1fr;
   grid-template-areas: "logo title";
   grid-area: header;
-  opacity: 0.8;
 }
 
 .logo {
@@ -123,6 +122,7 @@ header {
 
 .description > p {
   margin-top: 0.5em;
+  color: #9a9999;
 }
 
 .item > span > p {
@@ -160,13 +160,9 @@ main {
 
 footer {
   text-align: center;
-  font-size: 14px;
+  font-size: 12px;
   padding: 1em;
   background-color: #000000; /*#2c4b29;*/
   grid-area: footer;
-  color: hsla(0, 0%, 100%, 0.6);
-}
-
-footer > p > span {
-  opacity: 0.3;
+  color: rgba(255, 255, 255, 0.3);
 }

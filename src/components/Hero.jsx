@@ -14,7 +14,7 @@ class Hero extends Component {
         />
         <div className="description">
           <h2>{Location(planet)}</h2>
-          <p className="italic">
+          <p>
             A peddler of strange curios, Xûr's motives are not his own. He bows
             to his distant masters, the Nine.
           </p>
