@@ -1,16 +1,12 @@
 import React, { Component } from "react";
 import InventoryList from "./InventoryList";
-import { Location } from "./Helpers";
-
-const planet = "titan";
 
 class Body extends Component {
   render() {
     return (
       <main>
         <hr />
-        <h4>LOCATION</h4>
-        <h2>{Location(planet)}</h2>
+        <h2>Inventory</h2>
         <InventoryList />
       </main>
     );

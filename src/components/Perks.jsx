@@ -10,21 +10,33 @@ class Perks extends Component {
       perks: []
     };
   }
+
   componentDidMount() {
+    let visiblePerks = [
+      635551670,
+      3497077129,
+      3956125808,
+      4076485920,
+      1255556128,
+      2130769292
+    ];
     if (this.props.item.sockets) {
-      this.props.item.sockets.socketEntries.map(perks =>
-        firebaseRequest(perks.singleInitialItemHash.toString(10)).then(
-          result => {
-            this.setState(prevState => ({
-              perks: [...prevState.perks, result]
-            }));
-          }
-        )
-      );
+      this.props.item.sockets.socketEntries.map(e => {
+        if (e.reusablePlugItems && visiblePerks.includes(e.socketTypeHash)) {
+          e.reusablePlugItems.map(p =>
+            firebaseRequest(p.plugItemHash.toString(10)).then(result => {
+              this.setState(prevState => ({
+                perks: [...prevState.perks, result]
+              }));
+            })
+          );
+        }
+      });
     }
   }
   render() {
     const { perks } = this.state;
+
     return perks.map((perk, index) => (
       <img
         className="perk-image"
@@ -38,3 +50,10 @@ class Perks extends Component {
 }
 
 export default Perks;
+
+/*
+Object.keys(reusablePlugItems).map(perks =>
+          
+        )
+
+*/

@@ -44,7 +44,7 @@ class InventoryList extends Component {
   render() {
     const { inventory, isLoading, error } = this.state;
     const itemList = inventory.map(item => (
-      <li key={item.hash} className="item" data-hash={item.hash}>
+      <li className="item" key={item.hash} data-hash={item.hash}>
         <img src={Globals.url.bungie + item.displayProperties.icon} alt="" />
         <span>
           <h3>{item.displayProperties.name}</h3>

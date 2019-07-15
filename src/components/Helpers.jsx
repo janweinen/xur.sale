@@ -1,16 +1,16 @@
 export const Location = planet => {
   switch (planet) {
     case "nessus":
-      return "WATCHER'S GRAVE, NESSUS";
+      return "Watchers's Grave, Nessus";
     case "earth":
-      return "WINDING COVE, EDZ, EARTH";
+      return "Winding Cove, EDZ, Earth";
     case "tower":
-      return "TOWER HANGAR, EARTH";
+      return "Tower Hangar, Earth";
     case "titan":
-      return "THE RIG, TITAN";
+      return "The Rig, Titan";
     case "io":
-      return "GIANT'S SCAR, IO";
+      return "Giant's Scar, Io";
     default:
-      return "UNKNOWN SPACE";
+      return "The Unknwon Space";
   }
 };
