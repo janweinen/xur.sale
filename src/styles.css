@@ -55,7 +55,7 @@ li > img {
 hr {
   border: 0;
   height: 6px;
-  background-color: #cdc7aa;
+  background-color: white;
   width: 4em;
   margin-bottom: 1em;
   margin-left: 0;
@@ -72,7 +72,7 @@ hr {
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   grid-template-areas: "header" "image" "description" "items" "footer";
-  border-top: 3px solid #cdc7aa;
+  border-top: 3px solid white;
 }
 
 header {
@@ -132,7 +132,7 @@ header {
 .description > h2,
 main > h2,
 .item > span > h3 {
-  color: #cdc7aa;
+  color: white;
 }
 
 main {
