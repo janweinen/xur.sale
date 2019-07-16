@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import XurHeader from "../images/xur.jpg";
 import { Location } from "./Helpers";
+//import Auth from "./Auth";
 
 const planet = "titan";
 
@@ -18,6 +19,7 @@ class Hero extends Component {
             A peddler of strange curios, Xûr's motives are not his own. He bows
             to his distant masters, the Nine.
           </p>
+          {/*<Auth />*/}
         </div>
       </div>
     );

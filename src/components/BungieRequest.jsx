@@ -7,7 +7,7 @@ async function apiRequest(path, options) {
 
 export const getXurInventory = async () =>
   apiRequest(
-    Globals.url.bungie + "/Platform/Destiny2/Vendors/?components=402",
+    Globals.url.bungie + "/Platform/Destiny2/Vendors/?components=400,402",
     {
       headers: { "X-API-Key": Globals.key.bungie }
     }
