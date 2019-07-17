@@ -3,7 +3,7 @@ import XurHeader from "../images/xur.jpg";
 import { Location } from "./Helpers";
 //import Auth from "./Auth";
 
-const planet = "titan";
+const planet = "";
 
 class Hero extends Component {
   render() {
