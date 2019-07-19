@@ -6,7 +6,7 @@ export const Globals = {
   url: {
     bungie: "https://www.bungie.net",
     trn: "https://db.destinytracker.com/d2/en/items/",
-    oauth: "https://www.bungie.net/Platform/App/OAuth/Token/"
+    oauth: "https://www.bungie.net/de/oauth/authorize"
   }
 };
 

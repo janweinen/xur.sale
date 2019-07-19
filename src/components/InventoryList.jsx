@@ -2,7 +2,7 @@ import { firebaseRequest } from "./FirebaseRequest";
 import { getXurInventory } from "./BungieRequest";
 import { Globals } from "./Globals";
 import loader from "../images/loader.gif";
-import Perks from "./Perks";
+//import Perks from "./Perks";
 import React, { Component } from "react";
 
 class InventoryList extends Component {
@@ -20,12 +20,13 @@ class InventoryList extends Component {
     this.setState({ isLoading: true });
     getXurInventory()
       .then(result => {
-        Object.values(result.sales.data[2190858386].saleItems).map(item =>
-          firebaseRequest(item.itemHash.toString(10)).then(result => {
-            this.setState(prevState => ({
-              inventory: [...prevState.inventory, result]
-            }));
-          })
+        Object.values(result.Response.sales.data[2190858386].saleItems).map(
+          item =>
+            firebaseRequest(item.itemHash.toString(10)).then(result => {
+              this.setState(prevState => ({
+                inventory: [...prevState.inventory, result]
+              }));
+            })
         );
       })
       .then(() =>
@@ -49,7 +50,7 @@ class InventoryList extends Component {
         <span>
           <h3>{item.displayProperties.name}</h3>
           <p>{item.itemTypeDisplayName}</p>
-          <Perks item={item} />
+          {/*<Perks item={item} />*/}
           {/*<p className="italic">{item.displayProperties.description}</p>*/}
         </span>
       </li>
