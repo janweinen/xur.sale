@@ -1,5 +1,4 @@
 import * as firebase from "firebase/app";
-import "firebase/database";
 import Layout from "./components/Layout";
 import React from "react";
 import ReactDOM from "react-dom";

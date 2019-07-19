@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import XurHeader from "../images/xur.jpg";
 import { Location } from "./Helpers";
+//import { firestoreRequest } from "./FirebaseRequest";
 
 const planet = "";
+
+//firestoreRequest().then(location => console.log(location));
 
 class Hero extends Component {
   render() {
