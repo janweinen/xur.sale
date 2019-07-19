@@ -16,6 +16,11 @@ body {
   background-color: #000000;
 }
 
+.login {
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+}
+
 .loadingInfo {
   padding: 3em;
   display: block;

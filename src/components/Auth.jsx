@@ -18,6 +18,7 @@ const authURL =
 const url_string = window.location.href;
 const url = new URL(url_string);
 const code = url.searchParams.get("code");
+//const stateID = url.searchParams.get("state");
 
 if (code) {
   postData(Globals.url.oauth)
@@ -64,7 +65,9 @@ class Auth extends Component {
   render() {
     return (
       <div>
-        <a href={authURL}>auth</a>
+        <a href={authURL} className="login">
+          © 2019 Jan Weinen 0.1.6
+        </a>
       </div>
     );
   }

@@ -2,7 +2,7 @@ import { firebaseRequest } from "./FirebaseRequest";
 import { getXurInventory } from "./BungieRequest";
 import { Globals } from "./Globals";
 import loader from "../images/loader.gif";
-//import Perks from "./Perks";
+import Perks from "./Perks";
 import React, { Component } from "react";
 
 class InventoryList extends Component {
@@ -49,7 +49,7 @@ class InventoryList extends Component {
         <span>
           <h3>{item.displayProperties.name}</h3>
           <p>{item.itemTypeDisplayName}</p>
-          {/*<Perks item={item} />*/}
+          <Perks item={item} />
           {/*<p className="italic">{item.displayProperties.description}</p>*/}
         </span>
       </li>
