@@ -3,7 +3,7 @@ import XurHeader from "../images/xur.jpg";
 import { Location } from "./Helpers";
 //import { firestoreRequest } from "./FirebaseRequest";
 
-const planet = "";
+const planet = "io";
 
 //firestoreRequest().then(location => console.log(location));
 
