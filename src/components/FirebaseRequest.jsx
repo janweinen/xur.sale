@@ -23,9 +23,14 @@ export async function firebaseRequest(hash) {
 }
 
 export async function firestoreRequest() {
-  const request = storage
-    .collection("xur-location")
-    .doc("rhwPfyIhBQ9FSJmv3WKh");
+  const request = storage.collection("app").doc("xur");
   const snapshot = await request.get();
   return snapshot.data().location;
 }
+
+export const storeUser = data => {
+  const userdata = storage
+    .collection("users")
+    .doc(data.Response.bungieNetUser.uniqueName);
+  userdata.set({ data });
+};

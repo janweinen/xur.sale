@@ -18,7 +18,7 @@ export const getXurInventory = async () =>
   );
 
 export const requestAuthorization = async () =>
-  apiRequest("https://www.bungie.net/Platform/App/OAuth/Token/", {
+  apiRequest(Globals.url.bungie + "/Platform/App/OAuth/Token/", {
     method: "POST",
     headers: {
       "X-API-Key": Globals.key.bungie,
@@ -39,7 +39,7 @@ function createFormParams(params) {
 
 export const getMembershipsForCurrentUser = async access_token =>
   apiRequest(
-    "https://www.bungie.net/Platform/User/GetMembershipsForCurrentUser/",
+    Globals.url.bungie + "/Platform/User/GetMembershipsForCurrentUser/",
     {
       headers: {
         "X-API-Key": Globals.key.bungie,
@@ -47,3 +47,17 @@ export const getMembershipsForCurrentUser = async access_token =>
       }
     }
   );
+/*
+export const getVendors = async (
+  membershipType,
+  destinyMembershipId,
+  characterId,
+  vendorHash
+) =>
+  apiRequest(
+    Globals.url.bungie +
+      "/Destiny2/{membershipType}/Profile/{destinyMembershipId}/Character/{characterId}/Vendors/{vendorHash}/",
+    {}
+  );
+*/
+///Destiny2/{membershipType}/Profile/{destinyMembershipId}/Character/{characterId}/Vendors/

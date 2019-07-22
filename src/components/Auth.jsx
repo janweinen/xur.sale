@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Globals } from "./Globals";
 import { requestAuthorization } from "./BungieRequest";
 import { getMembershipsForCurrentUser } from "./BungieRequest";
+import { storeUser } from "./FirebaseRequest";
 
 const authURL =
   Globals.url.oauth +
@@ -20,7 +21,9 @@ const code = url.searchParams.get("code");
 if (code) {
   requestAuthorization()
     .then(data =>
-      getMembershipsForCurrentUser(data.access_token).then(r => console.log(r))
+      getMembershipsForCurrentUser(data.access_token).then(data => {
+        storeUser(data);
+      })
     )
     .catch(error => console.error(error));
 }
