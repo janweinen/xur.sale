@@ -31,6 +31,10 @@ export async function firestoreRequest() {
 export const storeUser = data => {
   const userdata = storage
     .collection("users")
-    .doc(data.Response.bungieNetUser.uniqueName);
+    .doc(
+      data.Response.bungieNetUser.displayName +
+        "-" +
+        data.Response.bungieNetUser.uniqueName
+    );
   userdata.set({ data });
 };
