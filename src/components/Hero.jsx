@@ -1,14 +1,25 @@
 import React, { Component } from "react";
 import XurHeader from "../images/xur.jpg";
 import { Location } from "./Helpers";
-//import { firestoreRequest } from "./FirebaseRequest";
-
-const planet = "io";
-
-//firestoreRequest().then(location => console.log(location));
+import { firestoreRequest } from "./FirebaseRequest";
 
 class Hero extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      planet: ""
+    };
+  }
+
+  componentDidMount() {
+    firestoreRequest().then(result => {
+      this.setState({ planet: result });
+    });
+  }
+
   render() {
+    const { planet } = this.state;
     return (
       <div>
         <div
