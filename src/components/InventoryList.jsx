@@ -4,6 +4,7 @@ import { Globals } from "./Globals";
 import loader from "../images/loader.gif";
 //import Perks from "./Perks";
 import React, { Component } from "react";
+//import { storeInventory } from "./FirebaseRequest";
 
 class InventoryList extends Component {
   constructor() {
@@ -40,6 +41,7 @@ class InventoryList extends Component {
           isLoading: false
         })
       );
+    //storeInventory(this.state.inventory);
   }
 
   render() {

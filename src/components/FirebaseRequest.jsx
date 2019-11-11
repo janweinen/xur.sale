@@ -38,3 +38,14 @@ export const storeUser = data => {
     );
   userdata.set({ data });
 };
+
+export const storeInventory = data => {
+  const inventory = storage.collection("app").doc("30-2019");
+  inventory.set({
+    hash: data.hash,
+    name: data.displayProperties.name,
+    icon: data.displayProperties.icon,
+    type: data.itemTypeDisplayName,
+    description: data.displayProperties.description
+  });
+};
