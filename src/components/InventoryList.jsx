@@ -80,7 +80,8 @@ class InventoryList extends Component {
     if (planet === "") {
       return (
         <h2 className="inventoryInfo">
-          Xûr has disappeared. <br />He will return on Friday!
+          Xûr has disappeared. <br />
+          He will return on Friday!
         </h2>
       );
     } else {
