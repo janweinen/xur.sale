@@ -5,6 +5,7 @@ import loader from "../images/loader.gif";
 //import Perks from "./Perks";
 import React, { Component } from "react";
 //import { storeInventory } from "./FirebaseRequest";
+import { firestoreRequest } from "./FirebaseRequest";
 
 class InventoryList extends Component {
   constructor() {
@@ -13,12 +14,16 @@ class InventoryList extends Component {
     this.state = {
       inventory: [],
       isLoading: false,
-      error: null
+      error: null,
+      planet: ""
     };
   }
 
   componentDidMount() {
     this.setState({ isLoading: true });
+    firestoreRequest().then(result => {
+      this.setState({ planet: result });
+    });
     getXurInventory()
       .then(result => {
         Object.values(result.Response.sales.data[2190858386].saleItems).map(
@@ -45,7 +50,7 @@ class InventoryList extends Component {
   }
 
   render() {
-    const { inventory, isLoading, error } = this.state;
+    const { inventory, isLoading, error, planet } = this.state;
     const itemList = inventory.map(item => (
       <li className="item" key={item.hash} data-hash={item.hash}>
         <img src={Globals.url.bungie + item.displayProperties.icon} alt="" />
@@ -72,7 +77,15 @@ class InventoryList extends Component {
     if (isLoading) {
       return <img className="loadingInfo" src={loader} alt="" />;
     }
-    return <ul className="item-list">{itemList}</ul>;
+    if (planet === "") {
+      return (
+        <p className="inventoryInfo">
+          Xûr has disappeared! He will return on Friday!
+        </p>
+      );
+    } else {
+      return <ul className="item-list">{itemList}</ul>;
+    }
   }
 }
 
