@@ -79,9 +79,9 @@ class InventoryList extends Component {
     }
     if (planet === "") {
       return (
-        <p className="inventoryInfo">
-          Xûr has disappeared! He will return on Friday!
-        </p>
+        <h2 className="inventoryInfo">
+          Xûr has disappeared. <br />He will return on Friday!
+        </h2>
       );
     } else {
       return <ul className="item-list">{itemList}</ul>;
